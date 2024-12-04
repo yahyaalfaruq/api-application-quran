@@ -1,14 +1,12 @@
 import express from "express";
 import { Pool } from "pg";
 import { Router } from "express";
+import dotenv from "dotenv";
 
 // Database connection
+dotenv.config();
 const pool = new Pool({
-  user: "postgres.yxkhjnxqdkorkhxsnfbc",
-  host: "aws-0-ap-southeast-1.pooler.supabase.com",
-  database: "postgres",
-  password: "Sandbox(1234*)",
-  port: 5432,
+  connectionString: process.env.DATABASE_URL,
 });
 
 const router = Router();
